@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubetms-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubetmsservice
+  template:
+    metadata:
+      labels:
+        app: kubetmsservice
+    spec:
+      containers:
+        - name: kubetmsservice
+          image: kylemorton5770/kubetms
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubetms-clusterip-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: kubetmsservice
+  ports:
+  - name: kubetmsservice
+    protocol: TCP
+    port: 80
+    targetPort: 80
