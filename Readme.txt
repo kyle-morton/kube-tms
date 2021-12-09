@@ -1,3 +1,10 @@
+Deploy to K8S in this order
+- kubetms-depl (deployment for app)
+- kubetms-np-srv (node port for app)
+- ingress-srv (remember to change host file - see below)
+- local-pvc (set up persistent volume for DB)
+- mssql-kubetms-depl (set up db)
+
 To push up to dockerhub
 - docker build -t kylemorton5770/kubetms
 - docker push kylemorton5770/kubetms
