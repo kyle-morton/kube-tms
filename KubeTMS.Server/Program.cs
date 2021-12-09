@@ -5,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+Console.WriteLine("--> Using Connection String: " + builder.Configuration.GetConnectionString("DefaultConnection"));
+Console.WriteLine("--> Environment: " + builder.Environment.EnvironmentName);
+
 // Add services to the container.
 builder.Services.AddDbContext<KubeTMSDbContext>(opt =>
         opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
