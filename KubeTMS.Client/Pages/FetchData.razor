@@ -1,14 +1,13 @@
 ﻿@page "/fetchdata"
 @using KubeTMS.Shared
+@using KubeTMS.Shared.Domain
 @inject HttpClient Http
 
-<PageTitle>Weather forecast</PageTitle>
+<PageTitle>Shipments</PageTitle>
 
-<h1>Weather forecast</h1>
+<h1>Shipments</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
-
-@if (forecasts == null)
+@if (shipments == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -17,20 +16,24 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
+                <th>ID</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Weight</th>
+                <th>Pickup Date</th>
+                <th>Carrier</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
+            @foreach (var shipment in shipments)
             {
                 <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
+                    <td>@shipment.Id</td>
+                    <td>@shipment.Origin</td>
+                    <td>@shipment.Destination</td>
+                    <td>@shipment.WeightInPounds</td>
+                    <td>@shipment.PickupDate.Value.ToShortDateString()</td>
+                    <td>@shipment.Carrier.Name (@shipment.Carrier.Scac)</td>
                 </tr>
             }
         </tbody>
@@ -38,10 +41,10 @@ else
 }
 
 @code {
-    private WeatherForecast[]? forecasts;
+    private List<Shipment> shipments;
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
+        shipments = await Http.GetFromJsonAsync<List<Shipment>>("Shipments");
     }
 }

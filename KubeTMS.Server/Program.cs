@@ -1,6 +1,6 @@
 using KubeTMS.Core.Data;
+using KubeTMS.Core.Services;
 using KubeTMS.Server.Data;
-using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +12,9 @@ builder.Services.AddDbContext<KubeTMSDbContext>(opt =>
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
+builder.Services.AddTransient<IShipmentService, ShipmentService>();
+builder.Services.AddTransient<ICarrierService, CarrierService>();
 
 var app = builder.Build();
 
@@ -33,7 +36,6 @@ app.UseBlazorFrameworkFiles();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 
 app.MapRazorPages();
 app.MapControllers();

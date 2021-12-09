@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using KubeTMS.Core.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace KubeTMS.Server.Controllers
 {
@@ -8,15 +9,19 @@ namespace KubeTMS.Server.Controllers
     {
 
         private readonly ILogger<ShipmentsController> _logger;
+        private readonly IShipmentService _service;
 
-        public ShipmentsController(ILogger<ShipmentsController> logger)
+        public ShipmentsController(IShipmentService service, ILogger<ShipmentsController> logger)
         {
             _logger = logger;
+            _service = service;
         }
 
-        public IActionResult Index()
+        [HttpGet]
+        public async Task<IActionResult> Get()
         {
-            return Ok();
+            var shipments = await _service.GetAsync();
+            return Ok(shipments);
         }
     }
 }
