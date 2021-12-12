@@ -1,10 +1,10 @@
 Deploy to K8S in this order
-- kubecustomers-depl (deployment for app)
-- kubecustomers-np-srv (node port for app)
+- kubecarrier-depl (deployment for app)
+- kubecarrier-np-srv (node port for app)
 
 To push up to dockerhub
-- docker build -t kylemorton5770/kubecustomers
-- docker push kylemorton5770/kubecustomers
+- docker build -t kylemorton5770/kubecarrier .
+- docker push kylemorton5770/kubecarrier
 
 To force K8S to pull newest image and restart
-- kubectl rollout restart deployment kubecustomers-depl
+- kubectl rollout restart deployment kubecarrier-depl

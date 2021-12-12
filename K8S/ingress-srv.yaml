@@ -17,11 +17,14 @@ spec:
                 name: kubetms-clusterip-srv
                 port: 
                   number: 80
-          - path: /api/carrier
+    - host: acme3.com
+      http: 
+        paths: 
+          - path: /api/c
             pathType: Prefix
             backend:
               service:
-                name: kubetms-clusterip-srv
+                name: kubecarrier-clusterip-srv
                 port: 
                   number: 80
           
