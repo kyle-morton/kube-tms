@@ -17,3 +17,11 @@ spec:
                 name: kubetms-clusterip-srv
                 port: 
                   number: 80
+          - path: /api/carrier
+            pathType: Prefix
+            backend:
+              service:
+                name: kubetms-clusterip-srv
+                port: 
+                  number: 80
+          

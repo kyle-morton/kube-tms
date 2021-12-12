@@ -8,8 +8,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7659F91B-DF4D-469E-80ED-D201E3D23551}"
 	ProjectSection(SolutionItems) = preProject
 		Dockerfile = Dockerfile
-		kubecustomers-depl.yaml = kubecustomers-depl.yaml
-		kubecustomers-np-srv.yaml = kubecustomers-np-srv.yaml
+		kubecustomer-depl.yaml = kubecustomer-depl.yaml
+		kubecustomer-np-srv.yaml = kubecustomer-np-srv.yaml
 		Readme.txt = Readme.txt
 	EndProjectSection
 EndProject

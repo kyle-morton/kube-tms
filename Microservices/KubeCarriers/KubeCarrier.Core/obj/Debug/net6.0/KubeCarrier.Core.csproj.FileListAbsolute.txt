@@ -1,0 +1,14 @@
+C:\Source\kube-tms\Microservices\KubeCarriers\KubeCarrier.Core\bin\Debug\net6.0\KubeCarrier.Core.deps.json
+C:\Source\kube-tms\Microservices\KubeCarriers\KubeCarrier.Core\bin\Debug\net6.0\KubeCarrier.Core.runtimeconfig.json
+C:\Source\kube-tms\Microservices\KubeCarriers\KubeCarrier.Core\bin\Debug\net6.0\KubeCarrier.Core.dll
+C:\Source\kube-tms\Microservices\KubeCarriers\KubeCarrier.Core\bin\Debug\net6.0\ref\KubeCarrier.Core.dll
+C:\Source\kube-tms\Microservices\KubeCarriers\KubeCarrier.Core\bin\Debug\net6.0\KubeCarrier.Core.pdb
+C:\Source\kube-tms\Microservices\KubeCarriers\KubeCarrier.Core\obj\Debug\net6.0\KubeCarrier.Core.csproj.AssemblyReference.cache
+C:\Source\kube-tms\Microservices\KubeCarriers\KubeCarrier.Core\obj\Debug\net6.0\KubeCarrier.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Source\kube-tms\Microservices\KubeCarriers\KubeCarrier.Core\obj\Debug\net6.0\KubeCarrier.Core.AssemblyInfoInputs.cache
+C:\Source\kube-tms\Microservices\KubeCarriers\KubeCarrier.Core\obj\Debug\net6.0\KubeCarrier.Core.AssemblyInfo.cs
+C:\Source\kube-tms\Microservices\KubeCarriers\KubeCarrier.Core\obj\Debug\net6.0\KubeCarrier.Core.csproj.CoreCompileInputs.cache
+C:\Source\kube-tms\Microservices\KubeCarriers\KubeCarrier.Core\obj\Debug\net6.0\KubeCarrier.Core.dll
+C:\Source\kube-tms\Microservices\KubeCarriers\KubeCarrier.Core\obj\Debug\net6.0\ref\KubeCarrier.Core.dll
+C:\Source\kube-tms\Microservices\KubeCarriers\KubeCarrier.Core\obj\Debug\net6.0\KubeCarrier.Core.pdb
+C:\Source\kube-tms\Microservices\KubeCarriers\KubeCarrier.Core\obj\Debug\net6.0\KubeCarrier.Core.genruntimeconfig.cache

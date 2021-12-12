@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "tdN+5Q1RCkdqh6I9Dl18Gr2Of4aKst7VXxGWluPwjjw=",
-  "Source": "KubeCarriers",
-  "BasePath": "_content/KubeCarriers",
+  "Hash": "85hB8VTW9nWib4oUlEcFf7jxl49HtspzkYbwAx4VZDM=",
+  "Source": "KubeCarrier.API",
+  "BasePath": "_content/KubeCarrier.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
