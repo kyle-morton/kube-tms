@@ -20,6 +20,7 @@ namespace KubeTMS.Core.Services
         {
             return await _context.Shipments
                 .Include(s => s.Carrier)
+                .Include(s => s.Customer)
                 .ToListAsync();
         }
     }

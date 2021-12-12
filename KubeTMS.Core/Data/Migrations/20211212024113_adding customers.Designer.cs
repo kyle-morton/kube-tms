@@ -4,6 +4,7 @@ using KubeTMS.Core.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KubeTMS.Core.Migrations
 {
     [DbContext(typeof(KubeTMSDbContext))]
-    partial class KubeTMSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211212024113_adding customers")]
+    partial class addingcustomers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,9 +73,6 @@ namespace KubeTMS.Core.Migrations
                     b.Property<int?>("CarrierId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CustomerId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("DeliveryDate")
                         .HasColumnType("datetime2");
 
@@ -95,8 +94,6 @@ namespace KubeTMS.Core.Migrations
 
                     b.HasIndex("CarrierId");
 
-                    b.HasIndex("CustomerId");
-
                     b.ToTable("Shipments");
                 });
 
@@ -106,13 +103,7 @@ namespace KubeTMS.Core.Migrations
                         .WithMany()
                         .HasForeignKey("CarrierId");
 
-                    b.HasOne("KubeTMS.Shared.Domain.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerId");
-
                     b.Navigation("Carrier");
-
-                    b.Navigation("Customer");
                 });
 #pragma warning restore 612, 618
         }

@@ -4,6 +4,7 @@ using KubeTMS.Core.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KubeTMS.Core.Migrations
 {
     [DbContext(typeof(KubeTMSDbContext))]
-    partial class KubeTMSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211212024212_add custy to shipment")]
+    partial class addcustytoshipment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -10,6 +10,7 @@ namespace KubeTMS.Core.Data
         }
 
         public DbSet<Shipment> Shipments { get; set; }
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<Carrier> Carriers { get; set; }
     }
 }

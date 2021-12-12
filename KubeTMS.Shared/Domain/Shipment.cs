@@ -7,6 +7,8 @@
         public int WeightInPounds { get; set; }
         public DateTime? PickupDate { get; set; }
         public DateTime? DeliveryDate { get; set; }
+        public int? CustomerId { get; set; }
+        public Customer Customer { get; set; }
         public int? CarrierId { get; set; }
         public Carrier Carrier { get; set; }
     }
