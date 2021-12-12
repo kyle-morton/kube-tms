@@ -34,10 +34,10 @@ namespace KubeCarrier.API.Data
             Console.WriteLine("--> Seeding data...");
 
             context.Carriers.AddRange(
-                new Carrier { Name = "A Duie Pyle", Scac = "PYLE" },
-                new Carrier { Name = "Fedex", Scac = "FXFE" },
-                new Carrier { Name = "R&L Carriers", Scac = "RLCA" },
-                new Carrier { Name = "Averitt Express", Scac = "AVRT" }
+                new Carrier { Name = "A Duie Pyle", Scac = "PYLE", SafetyRating = "Safe", IsApproved = true },
+                new Carrier { Name = "Fedex", Scac = "FXFE", SafetyRating = "Safe", IsApproved = true },
+                new Carrier { Name = "R&L Carriers", Scac = "RLCA", SafetyRating = "Safe", IsApproved = true },
+                new Carrier { Name = "Averitt Express", Scac = "AVRT", SafetyRating = "Conditional", IsApproved = false }
             );
 
             context.SaveChanges();
