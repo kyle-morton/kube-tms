@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KubeCarrier.API", "KubeCarrier.API\KubeCarrier.API.csproj", "{E85F8A23-6D5C-412A-A875-4313AF085928}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7659F91B-DF4D-469E-80ED-D201E3D23551}"
+	ProjectSection(SolutionItems) = preProject
+		Dockerfile = Dockerfile
+		kubecustomers-depl.yaml = kubecustomers-depl.yaml
+		kubecustomers-np-srv.yaml = kubecustomers-np-srv.yaml
+		Readme.txt = Readme.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KubeCarrier.Core", "KubeCarrier.Core\KubeCarrier.Core.csproj", "{DD201C8A-DF23-43F8-A37F-77A1D3918B65}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E85F8A23-6D5C-412A-A875-4313AF085928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E85F8A23-6D5C-412A-A875-4313AF085928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E85F8A23-6D5C-412A-A875-4313AF085928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E85F8A23-6D5C-412A-A875-4313AF085928}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD201C8A-DF23-43F8-A37F-77A1D3918B65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD201C8A-DF23-43F8-A37F-77A1D3918B65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD201C8A-DF23-43F8-A37F-77A1D3918B65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD201C8A-DF23-43F8-A37F-77A1D3918B65}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {75571881-2752-439B-9306-A9B5CF88E276}
+	EndGlobalSection
+EndGlobal

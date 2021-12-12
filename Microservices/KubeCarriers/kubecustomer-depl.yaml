@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubecustomer-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kubecustomerservice
+  template:
+    metadata:
+      labels:
+        app: kubecustomerservice
+    spec:
+      containers:
+        - name: kubecustomerservice
+          image: kylemorton5770/kubecustomer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubecustomer-clusterip-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: kubecustomerservice
+  ports:
+  - name: kubecustomerservice
+    protocol: TCP
+    port: 80
+    targetPort: 80

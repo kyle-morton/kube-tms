@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e85f8a23-6d5c-412a-a875-4313af085928": {
+      "ProjectGuid": "e85f8a23-6d5c-412a-a875-4313af085928",
+      "DisplayName": "KubeCarrier",
+      "ColorIndex": 0
+    },
+    "7659f91b-df4d-469e-80ed-d201e3d23551": {
+      "ProjectGuid": "7659f91b-df4d-469e-80ed-d201e3d23551",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
