@@ -34,7 +34,10 @@ namespace KubeTMS.Core.Services
                 {
                     var responseBody = await response.Content.ReadAsStringAsync();
                     Console.WriteLine("Response: " + responseBody);
-                    carriers = JsonSerializer.Deserialize<List<Carrier>>(responseBody);
+                    carriers = JsonSerializer.Deserialize<List<Carrier>>(responseBody, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
                 }
             }
 
