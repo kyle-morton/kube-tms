@@ -20,7 +20,7 @@ spec:
     - host: acme3.com
       http: 
         paths: 
-          - path: /api/c
+          - path: /
             pathType: Prefix
             backend:
               service:
