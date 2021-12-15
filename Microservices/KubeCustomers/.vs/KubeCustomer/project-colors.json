@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "4d06a277-3981-4298-9ecb-9432aaaed02d": {
+      "ProjectGuid": "4d06a277-3981-4298-9ecb-9432aaaed02d",
+      "DisplayName": "KubeCustomer.API",
+      "ColorIndex": 0
+    },
+    "83bd4e80-9fcf-4512-9516-a070ff001c9f": {
+      "ProjectGuid": "83bd4e80-9fcf-4512-9516-a070ff001c9f",
+      "DisplayName": "KubeCustomer.Core",
+      "ColorIndex": 1
+    },
+    "bb7938ad-ed9a-465f-b742-9aa069ba1a9c": {
+      "ProjectGuid": "bb7938ad-ed9a-465f-b742-9aa069ba1a9c",
+      "DisplayName": "Solution Items",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
