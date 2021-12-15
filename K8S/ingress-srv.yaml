@@ -27,4 +27,14 @@ spec:
                 name: kubecarrier-clusterip-srv
                 port: 
                   number: 80
+    - host: acme6.com
+      http: 
+        paths: 
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kubecustomer-clusterip-srv
+                port: 
+                  number: 80
           

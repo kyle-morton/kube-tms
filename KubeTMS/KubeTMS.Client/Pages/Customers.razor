@@ -1,0 +1,44 @@
+﻿@page "/Customers"
+@using KubeTMS.Shared
+@using KubeTMS.Shared.Domain
+@inject HttpClient Http
+
+<PageTitle>Customers</PageTitle>
+
+<h1>Customers</h1>
+
+@if (customers == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>SCAC</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in customers)
+            {
+                <tr>
+                    <td>@customer.Id</td>
+                    <td>@customer.Name</td>
+                    <td>@customer.CustomerNumber</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Customer> customers;
+
+    protected override async Task OnInitializedAsync()
+    {
+        customers = await Http.GetFromJsonAsync<List<Customer>>("Customers");
+    }
+}

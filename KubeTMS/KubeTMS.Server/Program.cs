@@ -18,6 +18,7 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddTransient<IShipmentService, ShipmentService>();
 builder.Services.AddTransient<ICarrierService, CarrierService>();
+builder.Services.AddTransient<ICustomerService, CustomerService>();
 
 var app = builder.Build();
 

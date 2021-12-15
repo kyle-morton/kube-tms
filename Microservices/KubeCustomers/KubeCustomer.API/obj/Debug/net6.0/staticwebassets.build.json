@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "W+R0dQu2Lndxdq3rgTYF1vg+1neRWr1KNUiuUmEmiHs=",
+  "Source": "KubeCustomer.API",
+  "BasePath": "_content/KubeCustomer.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

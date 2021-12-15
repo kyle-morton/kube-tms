@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Nc0rEpPAp55CFXvvr46wZbBRv5bLfcg8T7GRi1Kodu2CDsW4GoswTAtB7Vprq6lbm4Pq/YvcYKk5jts+pggV2A==",
+  "dgSpecHash": "yq/z5aghDQaL7dqQXZ0VlNYv0LoYLl5f/OxcPIJwbqXGa5K4EAFibZJNENbPLmAJFaQGNlkhHr07Js2ZyEUjXQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mkmor\\source\\repos\\KubeCustomer\\KubeCustomer.Core\\KubeCustomer.Core.csproj",
+  "projectFilePath": "C:\\Source\\kube-tms\\Microservices\\KubeCustomers\\KubeCustomer.Core\\KubeCustomer.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mkmor\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\mkmor\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

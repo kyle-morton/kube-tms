@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\KubeCustomer.Core\KubeCustomer.Core.csproj" />
   </ItemGroup>
 
 </Project>
