@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sK34tKkXMhqa2Eb42i4uztRpovswgmFvFmkDwVU6zF83i1woyPdaVAC4JQkndfUK6uROnFyReIgh4Mk94HPXTA==",
+  "dgSpecHash": "dGoMDT89HEc33L8qL96m95oHRV1sn5WMqACsS2TSTOeFPrJAAJdpI7frFAXgO4N5OebxOFFUhbLuiahSaANL6w==",
   "success": true,
   "projectFilePath": "C:\\Source\\kube-tms\\Microservices\\KubeCarriers\\KubeCarrier.API\\KubeCarrier.API.csproj",
   "expectedPackageFiles": [

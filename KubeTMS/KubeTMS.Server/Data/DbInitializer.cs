@@ -33,35 +33,35 @@ namespace KubeTMS.Server.Data
 
             Console.WriteLine("--> Seeding data...");
 
-            context.Customers.AddRange(
-                new Customer { Name = "ABC Glassware"},
-                new Customer { Name = "Maxwell Cabinets" }
-            );
+            // context.Customers.AddRange(
+            //     new Customer { Name = "ABC Glassware"},
+            //     new Customer { Name = "Maxwell Cabinets" }
+            // );
 
-            context.Carriers.AddRange(
-                new Carrier { Name = "A Duie Pyle", Scac = "PYLE" },
-                new Carrier { Name = "Fedex", Scac = "FXFE" },
-                new Carrier { Name = "R&L Carriers", Scac = "RLCA" }
-            );
+            // context.Carriers.AddRange(
+            //     new Carrier { Name = "A Duie Pyle", Scac = "PYLE" },
+            //     new Carrier { Name = "Fedex", Scac = "FXFE" },
+            //     new Carrier { Name = "R&L Carriers", Scac = "RLCA" }
+            // );
 
-            context.Shipments.Add(new Shipment
-            {
-                Origin = "Little Rock, AR 72211", 
-                Destination = "Chicago, IL 60606", 
-                WeightInPounds = 1500, 
-                PickupDate = DateTime.Now.AddDays(1),
-                DeliveryDate = DateTime.Now.AddDays(5),
-                Customer = new Customer
-                {
-                    Name = "Brodkin State University"
-                },
-                Carrier = new Carrier
-                {
-                    Name = "Averitt Express", Scac = "AVRT"
-                }
-            });
+            // context.Shipments.Add(new Shipment
+            // {
+            //     Origin = "Little Rock, AR 72211", 
+            //     Destination = "Chicago, IL 60606", 
+            //     WeightInPounds = 1500, 
+            //     PickupDate = DateTime.Now.AddDays(1),
+            //     DeliveryDate = DateTime.Now.AddDays(5),
+            //     Customer = new Customer
+            //     {
+            //         Name = "Brodkin State University"
+            //     },
+            //     Carrier = new Carrier
+            //     {
+            //         Name = "Averitt Express", Scac = "AVRT"
+            //     }
+            // });
 
-            context.SaveChanges();
+            // context.SaveChanges();
         }
     }
 }

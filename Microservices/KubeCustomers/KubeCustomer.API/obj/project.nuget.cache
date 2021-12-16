@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ua/Mxu22fer6mGy0EISJ5PzNaCIN43KneXSJTj9c1GhOt459mRp9IbQdJ53MHct8l2MF6FzkPNKOz7ByYUz8fw==",
+  "dgSpecHash": "pK4TkVFhN6b1JzDkt6aZzSwVKZVes95jbosJsDyAgjtZhJdzZcp1nkY5MvhRl9us63GFqPNzkNiUcFhvsDWzoQ==",
   "success": true,
   "projectFilePath": "C:\\Source\\kube-tms\\Microservices\\KubeCustomers\\KubeCustomer.API\\KubeCustomer.API.csproj",
   "expectedPackageFiles": [

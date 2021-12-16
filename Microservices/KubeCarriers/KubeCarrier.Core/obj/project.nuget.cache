@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oRCGRkUO9YW7kcTAiayzuUrz813hwcym2E2xwMPBkhnhRVwTtxNJbRMLRuD9Q0W6mD2Xvn+S9xipS2pj2OYz1w==",
+  "dgSpecHash": "c9D9aRw8Dr1wlz0fEWrD3PZkOgdeA88dyb2RmLGloBXesUtnKx5uG2QcwhQbqA4Z8XqCu/Akg0xCjPT/owKDBQ==",
   "success": true,
   "projectFilePath": "C:\\Source\\kube-tms\\Microservices\\KubeCarriers\\KubeCarrier.Core\\KubeCarrier.Core.csproj",
   "expectedPackageFiles": [
