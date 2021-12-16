@@ -7,6 +7,7 @@ namespace KubeCustomer.Core.Services
     public interface ICustomerService
     {
         Task<List<Customer>> GetAsync();
+        Task<Customer> CreateAsync(Customer customer);
     }
 
     public class CustomerService : ServiceBase, ICustomerService
@@ -19,5 +20,13 @@ namespace KubeCustomer.Core.Services
         {
             return await _context.Customers.ToListAsync();
         }
+
+        public async Task<Customer> CreateAsync(Customer customer)
+        {
+            await _context.Customers.AddAsync(customer);
+            await _context.SaveChangesAsync();
+            return customer;
+        }
+
     }
 }

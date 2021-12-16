@@ -61,3 +61,5 @@ C:\Source\kube-tms\Microservices\KubeCustomers\KubeCustomer.API\obj\Debug\net6.0
 C:\Source\kube-tms\Microservices\KubeCustomers\KubeCustomer.API\obj\Debug\net6.0\ref\KubeCustomer.API.dll
 C:\Source\kube-tms\Microservices\KubeCustomers\KubeCustomer.API\obj\Debug\net6.0\KubeCustomer.API.pdb
 C:\Source\kube-tms\Microservices\KubeCustomers\KubeCustomer.API\obj\Debug\net6.0\KubeCustomer.API.genruntimeconfig.cache
+C:\Source\kube-tms\Microservices\KubeCustomers\KubeCustomer.API\bin\Debug\net6.0\AutoMapper.dll
+C:\Source\kube-tms\Microservices\KubeCustomers\KubeCustomer.API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
