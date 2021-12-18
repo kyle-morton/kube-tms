@@ -1,4 +1,7 @@
-﻿namespace KubeTMS.Shared.Domain
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+
+namespace KubeTMS.Shared.Domain
 {
     public class Customer : EntityBase
     {
