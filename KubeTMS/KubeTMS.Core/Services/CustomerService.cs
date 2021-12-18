@@ -1,13 +1,15 @@
-using System.Text.Json;
 using KubeTMS.Core.Data;
 using KubeTMS.Shared.Domain;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System.Text.Json;
 
 namespace KubeTMS.Core.Services
 {
     public interface ICustomerService
     {
         Task<List<Customer>> GetAsync();
+        Task<Customer> GetDetailsAsync(int id);
     }
 
     public class CustomerService : ServiceBase, ICustomerService
@@ -21,11 +23,15 @@ namespace KubeTMS.Core.Services
 
         public async Task<List<Customer>> GetAsync()
         {
-            var url = _config["ApiUrls:Customers"] + "customers";
-            Console.WriteLine("--> Getting Customers: " + url);
+            return await _context.Customers.ToListAsync();
+        }
 
-            var customers = new List<Customer>();
+        public async Task<Customer> GetDetailsAsync(int id)
+        {
+            var url = _config["ApiUrls:Customers"] + "customers/" + id;
+            Console.WriteLine("--> Getting Customer: " + url);
 
+            Customer customer = null;
             using (var client = new HttpClient())
             {
                 var response = await client.GetAsync(url);
@@ -33,14 +39,14 @@ namespace KubeTMS.Core.Services
                 {
                     var responseBody = await response.Content.ReadAsStringAsync();
                     Console.WriteLine("Response: " + responseBody);
-                    customers = JsonSerializer.Deserialize<List<Customer>>(responseBody, new JsonSerializerOptions
+                    customer = JsonSerializer.Deserialize<Customer>(responseBody, new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true
                     });
                 }
             }
 
-            return customers;
+            return customer;
         }
     }
 }

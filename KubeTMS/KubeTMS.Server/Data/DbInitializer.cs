@@ -1,20 +1,21 @@
 ﻿using KubeTMS.Core.Data;
 using KubeTMS.Shared.Domain;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 namespace KubeTMS.Server.Data
 {
     public static class DbInitializer
     {
-        public static void Populate(IApplicationBuilder app, IWebHostEnvironment env)
+        public static async Task Populate(IApplicationBuilder app, IConfiguration config, IWebHostEnvironment env)
         {
             using (var serviceScope = app.ApplicationServices.CreateScope())
             {
-                SeedData(serviceScope.ServiceProvider.GetService<KubeTMSDbContext>(), env);
+                await SeedData(serviceScope.ServiceProvider.GetService<KubeTMSDbContext>(), config, env);
             }
         }
 
-        private static void SeedData(KubeTMSDbContext context, IWebHostEnvironment env)
+        private static async Task SeedData(KubeTMSDbContext context, IConfiguration config, IWebHostEnvironment env)
         {
             try
             {
@@ -25,43 +26,69 @@ namespace KubeTMS.Server.Data
                 Console.WriteLine("--> Could not run migrations: " + ex.Message);
             }
 
-            if (context.Shipments.Any())
+            //Console.WriteLine("--> Pulling customers/carriers...");
+
+            var url = config["ApiUrls:Customers"] + "customers";
+            using (var client = new HttpClient())
             {
-                Console.WriteLine("--> We already have data");
-                return;
+                var response = await client.GetAsync(url);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseBody = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine("Response: " + responseBody);
+                    var customerFromMicroservice = JsonSerializer.Deserialize<List<Customer>>(responseBody, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+
+                    var existingIds = await context.Customers.Select(c => c.ExternalId).ToListAsync();
+                    foreach (var customer in customerFromMicroservice.Where(c => !existingIds.Contains(c.Id)))
+                    {
+                        customer.ExternalId = customer.Id;
+                        customer.Id = 0;
+                        context.Customers.Add(customer);
+                    }
+                }
             }
 
-            Console.WriteLine("--> Seeding data...");
+            url = config["ApiUrls:Carriers"] + "carriers";
+            using (var client = new HttpClient())
+            {
+                var response = await client.GetAsync(url);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseBody = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine("Response: " + responseBody);
+                    var carriersFromMicroservice = JsonSerializer.Deserialize<List<Carrier>>(responseBody, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
 
-            // context.Customers.AddRange(
-            //     new Customer { Name = "ABC Glassware"},
-            //     new Customer { Name = "Maxwell Cabinets" }
-            // );
+                    var existingIds = await context.Customers.Select(c => c.ExternalId).ToListAsync();
+                    foreach (var carrier in carriersFromMicroservice.Where(c => !existingIds.Contains(c.Id)))
+                    {
+                        carrier.ExternalId = carrier.Id;
+                        carrier.Id = 0;
+                        context.Carriers.Add(carrier);
+                    }
+                }
+            }
 
-            // context.Carriers.AddRange(
-            //     new Carrier { Name = "A Duie Pyle", Scac = "PYLE" },
-            //     new Carrier { Name = "Fedex", Scac = "FXFE" },
-            //     new Carrier { Name = "R&L Carriers", Scac = "RLCA" }
-            // );
+            if (!context.Shipments.Any())
+            {
+                context.Shipments.Add(new Shipment
+                {
+                    Origin = "Little Rock, AR 72211",
+                    Destination = "Chicago, IL 60606",
+                    WeightInPounds = 1500,
+                    PickupDate = DateTime.Now.AddDays(1),
+                    DeliveryDate = DateTime.Now.AddDays(5),
+                    CustomerId = 1,
+                    CarrierId = 1
+                });
+            }
 
-            // context.Shipments.Add(new Shipment
-            // {
-            //     Origin = "Little Rock, AR 72211", 
-            //     Destination = "Chicago, IL 60606", 
-            //     WeightInPounds = 1500, 
-            //     PickupDate = DateTime.Now.AddDays(1),
-            //     DeliveryDate = DateTime.Now.AddDays(5),
-            //     Customer = new Customer
-            //     {
-            //         Name = "Brodkin State University"
-            //     },
-            //     Carrier = new Carrier
-            //     {
-            //         Name = "Averitt Express", Scac = "AVRT"
-            //     }
-            // });
-
-            // context.SaveChanges();
+            context.SaveChanges();
         }
     }
 }
