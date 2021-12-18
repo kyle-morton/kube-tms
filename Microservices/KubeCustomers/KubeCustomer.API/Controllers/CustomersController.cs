@@ -29,10 +29,9 @@ namespace KubeCustomer.API.Controllers
         }
                 
         [HttpGet("{customerId}", Name = "GetCustomer")]
-        public ActionResult<CustomerReadDto> GetCommandForPlatform(int customerId) 
+        public async Task<ActionResult<CustomerReadDto>> GetCommandForPlatform(int customerId) 
         {
-
-            var customer = _service.GetAsync(customerId);
+            var customer = await _service.GetAsync(customerId);
             if (customer == null) {
                 return NotFound();
             }
