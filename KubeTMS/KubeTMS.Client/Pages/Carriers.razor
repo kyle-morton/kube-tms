@@ -1,6 +1,7 @@
 ﻿@page "/Carriers"
 @using KubeTMS.Shared
 @using KubeTMS.Shared.Domain
+@using KubeTMS.Shared.Dtos
 @inject HttpClient Http
 
 <PageTitle>Carriers</PageTitle>
@@ -35,10 +36,10 @@ else
 }
 
 @code {
-    private List<Carrier> carriers;
+    private List<CarrierReadDto> carriers;
 
     protected override async Task OnInitializedAsync()
     {
-        carriers = await Http.GetFromJsonAsync<List<Carrier>>("Carriers");
+        carriers = await Http.GetFromJsonAsync<List<CarrierReadDto>>("Carriers");
     }
 }

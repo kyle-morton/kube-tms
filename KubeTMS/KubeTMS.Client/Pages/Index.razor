@@ -21,8 +21,8 @@ else
                 <th>Destination</th>
                 <th>Weight</th>
                 <th>Pickup Date</th>
-                <th>Customer</th>
-                <th>Carrier</th>
+                @*<th>Customer</th>*@
+                @*<th>Carrier</th>*@
             </tr>
         </thead>
         <tbody>
@@ -34,8 +34,8 @@ else
                     <td>@shipment.Destination</td>
                     <td>@shipment.WeightInPounds</td>
                     <td>@shipment.PickupDate.Value.ToShortDateString()</td>
-                    <td>@shipment.Customer.Name</td>
-                    <td>@shipment.Carrier.Name (@shipment.Carrier.Scac)</td>
+                    @*<td>@shipment.Customer.Name</td>*@
+                    @*<td>@shipment.Carrier.Name (@shipment.Carrier.Scac)</td>*@
                 </tr>
             }
         </tbody>

@@ -1,3 +1,4 @@
+using KubeTMS.Core.Clients;
 using KubeTMS.Core.Data;
 using KubeTMS.Core.Services;
 using KubeTMS.Server.Data;
@@ -16,6 +17,13 @@ builder.Services.AddDbContext<KubeTMSDbContext>(opt =>
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+// clients
+builder.Services.AddTransient<ICarriersClient, CarriersClient>();
+builder.Services.AddTransient<ICustomersClient, CustomersClient>();
+
+// services
 builder.Services.AddTransient<IShipmentService, ShipmentService>();
 builder.Services.AddTransient<ICarrierService, CarrierService>();
 builder.Services.AddTransient<ICustomerService, CustomerService>();

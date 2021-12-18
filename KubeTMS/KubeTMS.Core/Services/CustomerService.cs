@@ -1,52 +1,31 @@
-using KubeTMS.Core.Data;
-using KubeTMS.Shared.Domain;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System.Text.Json;
+using KubeTMS.Core.Clients;
+using KubeTMS.Shared.Dtos;
 
 namespace KubeTMS.Core.Services
 {
     public interface ICustomerService
     {
-        Task<List<Customer>> GetAsync();
-        Task<Customer> GetDetailsAsync(int id);
+        Task<List<CustomerReadDto>> GetAsync();
+        Task<CustomerReadDto> GetDetailsAsync(int id);
     }
 
-    public class CustomerService : ServiceBase, ICustomerService
+    public class CustomerService : ICustomerService
     {
-        private readonly IConfiguration _config;
+        private readonly ICustomersClient _client;
 
-        public CustomerService(KubeTMSDbContext context, IConfiguration config) : base(context)
+        public CustomerService(ICustomersClient client)
         {
-            _config = config;
+            _client = client;
         }
 
-        public async Task<List<Customer>> GetAsync()
+        public async Task<List<CustomerReadDto>> GetAsync()
         {
-            return await _context.Customers.ToListAsync();
+            return await _client.GetAsync();
         }
 
-        public async Task<Customer> GetDetailsAsync(int id)
+        public async Task<CustomerReadDto> GetDetailsAsync(int id)
         {
-            var url = _config["ApiUrls:Customers"] + "customers/" + id;
-            Console.WriteLine("--> Getting Customer: " + url);
-
-            Customer customer = null;
-            using (var client = new HttpClient())
-            {
-                var response = await client.GetAsync(url);
-                if (response.IsSuccessStatusCode)
-                {
-                    var responseBody = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine("Response: " + responseBody);
-                    customer = JsonSerializer.Deserialize<Customer>(responseBody, new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    });
-                }
-            }
-
-            return customer;
+            return await _client.GetAsync(id);
         }
     }
 }

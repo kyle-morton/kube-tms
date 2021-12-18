@@ -1,53 +1,26 @@
-﻿using KubeTMS.Core.Data;
-using KubeTMS.Shared.Domain;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System.Text.Json;
+﻿using KubeTMS.Core.Clients;
+using KubeTMS.Shared.Dtos;
 
 namespace KubeTMS.Core.Services
 {
     public interface ICarrierService
     {
-        Task<List<Carrier>> GetAsync();
+        Task<List<CarrierReadDto>> GetAsync();
     }
 
-    public class CarrierService : ServiceBase, ICarrierService
+    public class CarrierService : ICarrierService
     {
-        private readonly IConfiguration _config;
+        private readonly ICarriersClient _client;
 
-        public CarrierService(KubeTMSDbContext context, IConfiguration config) : base(context)
+        public CarrierService(ICarriersClient client)
         {
-            _config = config;
+            _client = client;
         }
 
-        public async Task<List<Carrier>> GetAsync()
+        public async Task<List<CarrierReadDto>> GetAsync()
         {
-            var url = _config["ApiUrls:Carriers"] + "carriers";
-            Console.WriteLine("--> Getting Carriers: " + url);
-
-            var carriers = new List<Carrier>();
-
-            using (var client = new HttpClient())
-            {
-                var response = await client.GetAsync(url);
-                if (response.IsSuccessStatusCode)
-                {
-                    var responseBody = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine("Response: " + responseBody);
-                    carriers = JsonSerializer.Deserialize<List<Carrier>>(responseBody, new JsonSerializerOptions
-                    {
-                        PropertyNameCaseInsensitive = true
-                    });
-                }
-            }
-
-            return carriers;
+            return await _client.GetAsync();
         }
-
-        //public async Task<List<Carrier>> GetAsync()
-        //{
-        //    return await _context.Carriers.ToListAsync();
-        //}
 
 
     }
