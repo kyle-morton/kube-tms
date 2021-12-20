@@ -1,5 +1,6 @@
 using KubeCustomer.API.Data;
 using KubeCustomer.Core.Data;
+using KubeCustomer.Core.GraphQL;
 using KubeCustomer.Core.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,9 +10,22 @@ Console.WriteLine("--> Using Connection String: " + builder.Configuration.GetCon
 Console.WriteLine("--> Environment: " + builder.Environment.EnvironmentName);
 
 // Add services to the container.
+builder.Services.AddPooledDbContextFactory<KubeCustomerDbContext>(opt =>
+        opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+    );
+
 builder.Services.AddDbContext<KubeCustomerDbContext>(opt =>
         opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
     );
+
+// GQL Setup
+builder.Services
+    .AddGraphQLServer()
+    .AddQueryType<Query>()
+    .AddType<CustomerType>()
+    .AddFiltering()
+    .AddSorting()
+    .ModifyRequestOptions(opt => opt.IncludeExceptionDetails = builder.Environment.IsDevelopment());
 
 // Add services to the container.
 builder.Services.AddTransient<ICustomerService, CustomerService>();
@@ -32,10 +46,19 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseRouting();
 app.UseAuthorization();
-
-app.MapControllers();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+    endpoints.MapGraphQL();
+});
 
 DbInitializer.Populate(app, app.Environment);
+
+app.UseGraphQLVoyager(new GraphQL.Server.Ui.Voyager.VoyagerOptions()
+{
+    GraphQLEndPoint = "/graphql"
+}, "/graphql-voyager");
 
 app.Run();

@@ -5,14 +5,17 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 	<ItemGroup>
+		<PackageReference Include="GraphQL.Server.Ui.Voyager" Version="5.1.1" />
+		<PackageReference Include="HotChocolate.AspNetCore" Version="12.4.1" />
+		<PackageReference Include="HotChocolate.Data.EntityFramework" Version="12.4.1" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.1">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3"/>
-		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1"/>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
 	</ItemGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\KubeCustomer.Core\KubeCustomer.Core.csproj"/>
+		<ProjectReference Include="..\KubeCustomer.Core\KubeCustomer.Core.csproj" />
 	</ItemGroup>
 </Project>
